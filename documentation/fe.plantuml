@@ -1,0 +1,37 @@
+@startuml
+
+actor user
+component "backend API" as backend
+
+component "frontend\n" {
+    component router
+    component view { 
+        [v1]
+        [v2]
+    }
+    component model
+    component state
+    component service
+    component mock
+
+    router -left-> view
+    view -down-> model : dispatch\naction
+    state -up-> view : connect
+    model -right-> state : update\n(reduce)
+    model -down-> service : call
+    service -up-> model
+    service -right-> backend : API
+    backend -left-> service
+    
+    service -right-> mock : API
+    mock -left-> service
+    
+    component testing#teal
+    
+    testing -right-> model
+}
+
+user -down-> router
+
+
+@enduml

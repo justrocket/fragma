@@ -1,0 +1,22 @@
+@startuml
+
+actor user
+component "backend API" as backend
+
+component "frontend\n" {
+    [view]
+    [state]
+    [service]
+
+    view -down-> state
+    state -down-> service
+    service -right-> backend
+    backend -left-> service
+    service -up-> state
+    state -up-> view
+}
+
+user -right-> view
+
+
+@enduml

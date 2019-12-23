@@ -1,0 +1,40 @@
+@startuml
+
+cloud "external\nservices" as ext
+queue " > q >" as q
+database db2
+database db1
+
+component "ms\ndomain2\n" as ms1 {
+    [api2]
+    [service2]
+    [repository2]
+    
+    api2 -down-> service2
+    service2 -down-> repository2
+    service2 -down-> q
+    repository2 -down-> db2
+}
+
+
+component "ms\ndomain1\n" as ms2 {
+    [api1]
+    [service1]
+    [repository1]
+  
+    
+    api1 -down-> service1
+    service1 -down-> repository1
+    service1 -left-> ext
+    service1 -down-> q
+    repository1 -down-> db1
+}
+
+component "API Gateway" as api
+
+api -down-> ms1
+api -down-> ms2
+
+Client -down-> api
+
+@enduml

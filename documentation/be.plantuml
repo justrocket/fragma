@@ -1,0 +1,17 @@
+@startuml
+
+component backend {
+    [api]
+    [service]
+    [repository]
+    database db
+    cloud "external\nservices" as ext
+    queue " > q >" as q
+    api -down-> service
+    service -down-> repository
+    service -down-> ext
+    service -right-> q 
+    repository -down-> db
+}
+
+@enduml

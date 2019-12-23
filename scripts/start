@@ -1,0 +1,13 @@
+#!/bin/sh -xe 
+
+docker run \
+    -v $(pwd):/project \
+    -w /project \
+    --name fragma-fe \
+    --rm\
+    -it\
+    -e "UMI_ENV=${1:-local}" \
+    -e "UMI_UI=none" \
+    --network host \
+    node:lts-alpine\
+    npm start

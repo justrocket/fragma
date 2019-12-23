@@ -1,0 +1,65 @@
+@startuml
+
+actor user
+component "backend API" as backend
+component "FrontendApp\n" {
+    component router
+    database state
+    component "domain1\n" {
+        component view1 {
+            component pageA as vA
+            component pageB as vB
+        }
+        component model1
+        component service1
+        component mock1
+
+        view1 -down-> model1 : dispatch\naction
+        state -up-> view1 : connect
+        model1 -up-> state : update
+        model1 -down-> service1 : call
+        service1 -up-> model1
+        service1 -down-> backend : API
+        backend -up-> service1
+
+        service1 -right-> mock1 : API
+        mock1 -left-> service1
+    }
+    
+    component "domain2\n" {
+        component view2 {
+            component pageC as vC
+            component pageD as vD
+        }
+        component model2
+        component service2
+        component mock2
+
+        view2 -down-> model2 : dispatch\naction
+        model2 -up-> state : update
+        model2 -down-> service2 : call
+        service2 -up-> model2
+        service2 -down-> backend : API
+        backend -up-> service2
+
+        service2 -right-> mock2 : API
+        mock2 -left-> service2
+    }
+    component common {
+        component pagei as vi
+        [model]
+        [service]
+        [mock]
+
+        state -up-> vA : connect 
+        state -up-> vC : connect 
+        model -down-> service : call
+        model -up-> state : update
+    }
+    router -down-> view1
+    router -down-> view2
+}
+user -down-> router
+
+
+@enduml

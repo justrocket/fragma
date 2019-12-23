@@ -1,0 +1,140 @@
+ul, ol {
+    text-align: left;
+}
+
+table td {
+    text-align: left;
+    font-size: .8em !important;
+    padding: 4px;
+}
+.spectacle-content {
+    max-width: 1200px !important;
+}
+.spectacle-content > * {
+    padding-left: 50px !important;
+    padding-right: 50px !important;
+}
+
+body {
+    font-family: "Proxima Nova", "Montserrat" !important;
+    color: #292936;
+}
+.css-6f99jp {
+    font-family: "Proxima Nova", "Montserrat" !important;
+    font-weight: bold;
+}
+
+.css-13fut6c {
+    padding-top: 2em;
+    align-items: start !important;
+}
+
+/* 
+primary: #e56d66
+gray: #292936
+off-white: #fafafa
+*/
+.spectacle-slide {
+    background-color: #fafafa !important;
+    background-image: url(./favicon.png);
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: 2em;
+}
+/* .e1s7evq10 {
+    background-image: url(./logo.png);
+    background-position: bottom center;
+} */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Proxima Nova", "Montserrat" !important;
+    color: #e56d66 !important;
+    text-align: left;
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+    border-bottom: solid 1px #292936;
+}
+h1{ 
+    font-size: 6rem !important;
+}
+h2{ 
+    font-size: 4.5rem !important;
+}
+h3{ 
+    font-size: 4rem !important;
+    font-weight: 300
+}
+svg path {
+    fill: #292936;
+}
+/* PACMAN */
+.e12weced0 > div{
+    background-color: #e56d66 !important;
+}
+/* BULLETS */
+.e12weced2 {
+    border-color: #292936 !important;
+}
+
+/*justrocket logo*/
+img[alt="JUSTROCKET"] {
+    width: 300px;
+}
+img[alt="anim"] {
+    margin-top: 3em;
+    width: 5em;
+}
+img[src*=full-page]{
+    height: 70vh;
+}
+img[src*=full-screen]{
+    width: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_black_macroman/proximanova-black-webfont.woff2) format("woff2"),url(./fonts/proximanova_black_macroman/proximanova-black-webfont.woff) format("woff");
+    font-weight:400;
+    font-style:normal
+}
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_bold_macroman/proximanova-bold-webfont.woff2) format("woff2"),url(./fonts/proximanova_bold_macroman/proximanova-bold-webfont.woff) format("woff");
+    font-weight:700;
+    font-style:normal
+}
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_bolditalic_macroman/proximanova-boldit-webfont.woff2) format("woff2"),url(./fonts/proximanova_bolditalic_macroman/proximanova-boldit-webfont.woff) format("woff");
+    font-weight:700;
+    font-style:italic
+}
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_italic_macroman/proximanova-regularit-webfont.woff2) format("woff2"),url(./fonts/proximanova_italic_macroman/proximanova-regularit-webfont.woff) format("woff");
+    font-weight:400;
+    font-style:italic
+}
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_regular_macroman/proximanova-regular-webfont.woff2) format("woff2"),url(./fonts/proximanova_regular_macroman/proximanova-regular-webfont.woff) format("woff");
+    font-weight:400;
+    font-style:normal
+}
+@font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_semibold_macroman/proximanova-semibold-webfont.woff2) format("woff2"),url(./fonts/proximanova_semibold_macroman/proximanova-semibold-webfont.woff) format("woff");
+    font-weight:500;
+    font-style:normal
+}
+    @font-face{
+    font-family:Proxima Nova;
+    src:url(./fonts/proximanova_semibolditalic_macroman/proximanova-semiboldit-webfont.woff2) format("woff2"),url(./fonts/proximanova_semibolditalic_macroman/proximanova-semiboldit-webfont.woff) format("woff");
+    font-weight:500;
+    font-style:italic
+}

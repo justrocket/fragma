@@ -1,0 +1,14 @@
+@startuml
+
+actor user
+component "backend API" as backend
+
+component frontend {
+    cloud "**Scaling MESS** \nreact\nrouting\nmobx/redux/saga/" as mess
+}
+
+user -> mess
+mess -down-> backend
+
+
+@enduml
