@@ -35,6 +35,32 @@ const QuestionFormCard = ({ submitFormHandler, cancelHandler }) => {
   </Card>);
 };
 
+const QuestionCard = (question: any) => <Card className={style.questionCard}
+    title={<h2 className={style.questionTitle}>{question.title}</h2>}
+    key={question._id}
+    extra={<div className={style.questionExtra}>
+      <div className="author">{question.lastModifiedBy}</div>
+      <div className="author">{moment(question.lastModified).format('LLL')}</div>
+    </div>}
+  >
+    <div className={style.questionContent}
+      dangerouslySetInnerHTML={{ __html: question.text }} />
+    <Divider />
+    {question.answers && question.answers.length ? <>
+      <h3>Answers</h3>
+      <ol className={style.answers}>
+        {(question.answers || []).map((a, i) => <li className={style.answer} key={a._id || i}>
+          <p>{a.createdBy}'s answer:</p>
+          <p>
+            {a.text}
+          </p>
+        </li>)}
+      </ol>
+    </> : <>
+      <Button>Answer Question</Button>
+    </>}
+  </Card>;
+
 class QuestionsList extends Component<{}, {}> {
   constructor(props: any) {
     super(props);
@@ -80,36 +106,8 @@ class QuestionsList extends Component<{}, {}> {
           }}
           cancelHandler={() => this.showQuestionForm(false)} />}
         {questions.map(question =>
-          <Card className={style.questionCard}
-            title={
-              <h2 className={style.questionTitle}>{question.title}</h2>
-            }
-            key={question._id}
-            extra={
-              <div className={style.questionExtra}>
-                <div className="author">{question.lastModifiedBy}</div>
-                <div className="author">{moment(question.lastModified).format('LLL')}</div>
-              </div>}
-          >
-            <div className={style.questionContent}
-              dangerouslySetInnerHTML={{ __html: question.text }}
-            />
-            <Divider />
-            {question.answers && question.answers.length ? <>
-              <h3>Answers</h3>
-              <ol className={style.answers}>
-                {(question.answers || []).map((a, i) => <li className={style.answer} key={a._id || i}>
-                  <p>{a.createdBy}'s answer:</p>
-                  <p>
-                    {a.text}
-                  </p>
-                </li>)}
-              </ol>
-              </> : <>
-                <Button>Answer Question</Button>
-              </>}
-          </Card>
-        )}
+          <QuestionCard question={question}/>)
+        }
 
       </GridContent>
     );
@@ -119,3 +117,4 @@ class QuestionsList extends Component<{}, {}> {
 export default connect(
   ({ questionsModel: { questions } }) => ({ questions: questions }))
   (QuestionsList);
+
